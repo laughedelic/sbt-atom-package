@@ -10,7 +10,7 @@ scmInfo in ThisBuild := Some(ScmInfo(
   s"scm:git:git@github.com:laughedelic/${name.value}.git"
 ))
 
-licenses := Seq("GPL-V3" -> url("http://www.gnu.org/licenses/gpl-3.0.txt"))
+licenses := Seq("GPL-3.0" -> url("http://www.gnu.org/licenses/gpl-3.0.txt"))
 developers := List(Developer(
   "laughedelic",
   "Alexey Alekhin",
