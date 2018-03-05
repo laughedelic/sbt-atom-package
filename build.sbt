@@ -1,6 +1,8 @@
 name         := "sbt-atom-package"
 organization := "laughedelic"
-description  := ""
+description  := "sbt plugin for making Atom packages in Scala.js"
+
+sbtPlugin := true
 
 homepage := Some(url(s"https://github.com/laughedelic/${name.value}"))
 scmInfo in ThisBuild := Some(ScmInfo(
@@ -17,6 +19,12 @@ developers := List(Developer(
 ))
 
 scalaVersion := "2.12.4"
+scalacOptions ++= Seq(
+  "-unchecked",
+  "-deprecation",
+  "-Ywarn-unused-import"
+)
+
 
 libraryDependencies ++= Seq()
 
@@ -26,3 +34,7 @@ releaseEarlyNoGpg := true
 
 publishMavenStyle := true
 bintrayReleaseOnPublish := !isSnapshot.value
+
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.7"
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.22")
+addSbtPlugin("com.dwijnand" % "sbt-dynver" % "2.1.0")
