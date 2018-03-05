@@ -1,0 +1,1 @@
+package laughedelic.sbt.atom
