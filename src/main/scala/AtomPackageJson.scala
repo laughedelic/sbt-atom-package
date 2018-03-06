@@ -26,6 +26,10 @@ case object AtomPackageJson extends AutoPlugin {
   }
   import autoImport._
 
+  private def servicesObj(versions: Map[String, String]): JsObject = Json.obj(
+    "versions" -> versions
+  )
+
   override def projectSettings = Seq(
     // Following atom packages convention: lib/main.js is the plugin's entry point
     apmMain := baseDirectory.value / "lib" / "main.js",
@@ -74,8 +78,8 @@ case object AtomPackageJson extends AutoPlugin {
         "keywords" -> apmKeywords.value.distinct,
         "engines" -> apmEngines.value,
         "dependencies" -> apmDependencies.value,
-        "consumedServices" -> apmConsumedServices.value,
-        "providedServices" -> apmProvidedServices.value
+        "consumedServices" -> apmConsumedServices.value.mapValues(servicesObj),
+        "providedServices" -> apmProvidedServices.value.mapValues(servicesObj)
       )
     },
 
