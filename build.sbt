@@ -32,7 +32,7 @@ releaseEarlyWith := BintrayPublisher
 releaseEarlyEnableSyncToMaven := false
 releaseEarlyNoGpg := true
 
-publishMavenStyle := true
+publishMavenStyle := false
 bintrayReleaseOnPublish := !isSnapshot.value
 
 libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.7"
